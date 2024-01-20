@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+    triggers {
+        githubPush()
+    }
+    stages {
+        stage('Pull repository') {
+            checkout scm()
+        }
+
+        stage('Unit Testing') {
+            when {
+                branch 'feature*'
+            }
+            steps {
+
+            }
+        }
+
+        stage('Integration Testing') {
+            when {
+                branch 'develop'
+            }
+            steps {
+
+            }
+        }
+
+        stage('Build Docker Image') {
+            when {
+                branch 'master'
+            }
+            steps {
+                
+            }
+        }
+    }
+}
