@@ -1,8 +1,13 @@
 FROM python:alpine
+
+# Copy files
 RUN mkdir -p /application
+COPY . /application
 
+# Install dependencies
+RUN pip install -r application/requirements.txt
 
-COPY ./application /application
+# Run app
 WORKDIR /application
 
 EXPOSE 5000
