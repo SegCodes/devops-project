@@ -1,6 +1,9 @@
 FROM python:alpine
+RUN mkdir -p /application
 
-COPY ./app /app
-WORKDIR /app
 
-RUN ["python", "main.py"]
+COPY ./application /application
+WORKDIR /application
+
+EXPOSE 5000
+CMD ["python3", "main.py"]
